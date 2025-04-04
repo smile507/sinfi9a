@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Синфи 9А</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: white;
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #1f1f1f;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    main {
+      padding: 1rem;
+    }
+    .card {
+      background: #1e1e1e;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+    .admin-panel {
+      margin-top: 1rem;
+      display: none;
+    }
+    input, textarea, select, button {
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      padding: 0.4rem;
+      border-radius: 5px;
+      border: none;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 0.5rem;
+      border: 1px solid #333;
+      text-align: center;
+    }
+    #loginOverlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+    #loginBox {
+      background: #1f1f1f;
+      padding: 2rem;
+      border-radius: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="loginOverlay">
+    <div id="loginBox">
+      <h2>Вход для старосты</h2>
+      <input type="password" id="passwordInput" placeholder="Введите пароль" />
+      <br>
+      <button onclick="checkPassword()">Войти</button>
+      <p id="loginError" style="color: red; display: none;">Неверный пароль</p>
+    </div>
+  </div>
+
+  <header>Синфи 9А</header>
+  <main>
+    <div id="roleInfo"></div>
+
+    <div class="card">
+      <h2>Список учеников и отметки НБ</h2>
+      <ul id="students"></ul>
+    </div>
+
+    <div class="card">
+      <h2>Оценки</h2>
+      <table id="gradesTable">
+        <thead>
+          <tr>
+            <th>Ученик</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="announcement card">
+      <h2>Объявления</h2>
+      <div id="announcements"></div>
+      <div class="admin-panel">
+        <textarea id="newAnnouncement" placeholder="Новое объявление..."></textarea><br />
+        <button onclick="addAnnouncement()">Добавить</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const PASSWORD = "M31";
+    let isAdmin = false;
+
+    const students = [
+      "Абусаломова Ф", "Азимова М", "Абдусаматов Ш", "Абдусаматов С", "Абдуллаев А",
+      "Баходуров А", "Байзоев Ш", "Бобоев Б", "Бозоров М", "Кулиева Р",
+      "Кобилов Д", "Кутбидинов У", "Мамуров И", "Мансуров Б", "Мухаммадиев А",
+      "Марупова Н", "Норточов С", "Рахимов Ю", "Рахимова З", "Халилова З",
+      "Хамдамова Ф", "Хошимова З", "Чумаев А", "Шамсиева Г", "Шукуров С",
+      "Шарипова С", "Староста"
+    ];
+
+    const subjects = [
+      "Математика", "Русский", "Литература", "История",
+      "География", "Физика", "Биология", "Химия",
+      "Английский", "Информатика"
+    ];
+
+    function checkPassword() {
+      const input = document.getElementById("passwordInput").value;
+      if (input === PASSWORD) {
+        isAdmin = true;
+        localStorage.setItem("sinfi9a_admin", "yes");
+        document.getElementById("loginOverlay").style.display = "none";
+        initSite();
+      } else {
+        document.getElementById("loginError").style.display = "block";
+      }
+    }
+
+    function initSite() {
+      document.getElementById("roleInfo").textContent = isAdmin ? "Роль: Староста" : "Роль: Ученик";
+      document.querySelectorAll('.admin-panel').forEach(el => el.style.display = isAdmin ? 'block' : 'none');
+
+      const list = document.getElementById("students");
+      list.innerHTML = "";
+      students.forEach(name => {
+        const li = document.createElement("li");
+        li.innerHTML = isAdmin ? `<label><input type='checkbox'> ${name} <small>(НБ)</small></label>` : name;
+        list.appendChild(li);
+      });
+
+      const gradesTable = document.getElementById("gradesTable");
+      const theadRow = gradesTable.querySelector("thead tr");
+      const tbody = gradesTable.querySelector("tbody");
+      theadRow.innerHTML = '<th>Ученик</th>' + subjects.map(s => `<th>${s}</th>`).join("");
+      tbody.innerHTML = "";
+      students.forEach(name => {
+        const row = document.createElement("tr");
+        row.innerHTML = `<td>${name}</td>` + subjects.map(() =>
+          `<td>${isAdmin ? '<input type="text" size="1">' : ''}</td>`
+        ).join("");
+        tbody.appendChild(row);
+      });
+    }
+
+    window.onload = () => {
+      if (localStorage.getItem("sinfi9a_admin") === "yes") {
+        isAdmin = true;
+        document.getElementById("loginOverlay").style.display = "none";
+      }
+      initSite();
+    }
+
+    function addAnnouncement() {
+      const text = document.getElementById("newAnnouncement").value;
+      if (text.trim()) {
+        const div = document.createElement("div");
+        div.textContent = text;
+        document.getElementById("announcements").prepend(div);
+        document.getElementById("newAnnouncement").value = "";
+      }
+    }
+  </script>
+</body>
+  </html
