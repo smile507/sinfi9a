@@ -1,186 +1,158 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Синфи 9А</title>
-  <style>
-    body {
-      background-color: #121212;
-      color: white;
-      font-family: sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #1f1f1f;
-      padding: 1rem;
-      text-align: center;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-    main {
-      padding: 1rem;
-    }
-    .card {
-      background: #1e1e1e;
-      padding: 1rem;
-      border-radius: 10px;
-      margin-bottom: 1rem;
-    }
-    .admin-panel {
-      margin-top: 1rem;
-      display: none;
-    }
-    input, textarea, select, button {
-      font-size: 1rem;
-      margin-top: 0.5rem;
-      padding: 0.4rem;
-      border-radius: 5px;
-      border: none;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    th, td {
-      padding: 0.5rem;
-      border: 1px solid #333;
-      text-align: center;
-    }
-    #loginOverlay {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.9);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 10;
-    }
-    #loginBox {
-      background: #1f1f1f;
-      padding: 2rem;
-      border-radius: 10px;
-      text-align: center;
-    }
-  </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Taj.danat</title>
+    <meta name="description" content="Быстро и удобно купить игровую валюту Free Fire напрямую из России. Все способы оплаты и моментальная доставка на Taj.danat">
+    <meta name="color-scheme" content="light">
+    <link rel="canonical" href="https://taj.danat">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/vendor.css?id=a8a7b247187968bd89dc8ea11f232b46">
+    <link rel="stylesheet" href="/css/app.css?id=5c0c3de2f9d6fbba75b9f72ebd6525a1">
+    <meta name="authenticated" content="0">
+    <meta name="balance" content="-1">
+    <meta name="user-id" content="">
+    <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="manifest" href="https://taj.danat/client/progressier.json?id=kdCBIxPEOteczexI9K5S" />
+    <script defer src="https://taj.danat/client/script.js?id=kdCBIxPEOteczexI9K5S"></script>
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#f8f9fa" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1b1d24" media="(prefers-color-scheme: dark)">
+    <meta property="og:title" content="Taj.danat" />
+    <meta property="og:description" content="Быстро и удобно купить игровую валюту Free Fire напрямую из России. Все способы оплаты и моментальная доставка на Taj.danat" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://cdn.donatov.net/images/taj.danat-17075890921138.webp">
+    <meta property="og:image:type" content="image/webp">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="yandex-verification" content="3619b29f9c8bde5d" />
+    <meta name="google-site-verification" content="j2D1X8Nv6NcyLVN-9EY1IFHXFDRFsxLcPhFFYef-tTg" />
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" async defer>
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+        ym(93505681, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/93505681" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <meta name="wot-verification" content="5ebce2affe5653357fd3"/>
+    <meta name="tpay-verification" content="178be0fb2d6ab23f0372207e1a0a4a74" />
+    <meta name="payok" content="payok_verification"/>
+    <meta name="b2pay-verification" content="ik4TheeK" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMRH6VGF5L"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-LMRH6VGF5L');
+    </script>
 </head>
-<body>
-  <div id="loginOverlay">
-    <div id="loginBox">
-      <h2>Вход для старосты</h2>
-      <input type="password" id="passwordInput" placeholder="Введите пароль" />
-      <br>
-      <button onclick="checkPassword()">Войти</button>
-      <p id="loginError" style="color: red; display: none;">Неверный пароль</p>
+
+<body class="">
+    <div id="app">
+        <header class="container-fluid">
+            <div class="row">
+                <div class="navigation">
+                    <div class="container container-md-fluid">
+                        <div class="row">
+                            <div class="navigation-wrapper">
+                                <div class="navigation-side --logo">
+                                    <a href="https://taj.danat" title="Главная">
+                                        <div class="navigation-logo"></div>
+                                    </a>
+                                </div>
+                                <div class="navigation-side --search">
+                                    <vue-search :recommendations="{'timestamp':1751823914,'table':[{'name':'Free Fire','cover':'https:\/\/cdn.donatov.net\/cover\/good-8-1750904497.webp','url':'https://taj.danat/free-fire-diamonds.html','currencyName':'Алмазы','sort':1,'aliases':['Free Fire','Фри фаер','Алмазы','FF']}]}"></vue-search>
+                                </div>
+                                <div class="navigation-side --profile">
+                                    <a href="https://taj.danat/order/checkout" class="navigation-menu-item-link --cart" title="Корзина"><i class="i i-cart"></i></a>
+                                    <a href="https://taj.danat/profile/orders" class="navigation-menu-item-link" title="Покупки"><i class="i i-archieve"></i></a>
+                                    <a href="https://taj.danat/login" class="btn btn-primary login-button" title="Войти">Войти</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <nav class="navigation-bottom">
+                    <div class="navigation-bottom_container container container-md-fluid don-scroll-bar_hidden">
+                        <div class="main-menu-large">
+                            <a href="https://taj.danat" title="Главная" class="current">Главная</a>
+                            <a href="https://taj.danat/feedback" title="Отзывы" class="">Отзывы</a>
+                            <a href="https://taj.danat/support" title="Поддержка" class="">Поддержка</a>
+                            <a href="https://taj.danat/giveaway" title="Раздача" class="">Раздача</a>
+                            <a href="https://taj.danat/blog" title="Taj.danat Blog">Блог</a>
+                        </div>
+                        <div class="theme-switch --simple">
+                            <button class="theme-switch__btn">
+                                <i class="i i-circle-half"></i>
+                            </button>
+                        </div>
+                        <div class="don-scroll-bar_overlay">
+                            <div class="don-scroll-bar_overlay-item"></div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <div class="container">
+                <div class="hot-swiper" id="hotSwiper">
+                    <div class="swiper-wrapper hot-wrapper">
+                        <div class="swiper-slide">
+                            <a href="https://taj.danat/free-fire-diamonds.html" class="hot-item">
+                                <img class="hot-item_cover" src="https://cdn.donatov.net/cover/hot-offer-1750949773.webp" alt="Free Fire">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hot-swiper-button-prev hidden">
+                        <div class="hot-swiper-button-prev-button"><i class="i i-chevron-left"></i></div>
+                    </div>
+                    <div class="hot-swiper-button-next hidden">
+                        <div class="hot-swiper-button-next-button"><i class="i i-chevron-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="index-block">
+                    <div class="label-of-block">
+                        <i class="i i-clip color-orange"></i>
+                        Новинки
+                    </div>
+                    <div class="hot-swiper" id="compilationSwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <a href="https://taj.danat/free-fire-diamonds.html" class="compilation-item">
+                                    <img class="compilation-item_cover" src="https://cdn.donatov.net/cover/good-8-1750904497.webp" alt="Free Fire">
+                                    <div class="compilation-item_name"></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
-  </div>
-
-  <header>Синфи 9А</header>
-  <main>
-    <div id="roleInfo"></div>
-
-    <div class="card">
-      <h2>Список учеников и отметки НБ</h2>
-      <ul id="students"></ul>
-    </div>
-
-    <div class="card">
-      <h2>Оценки</h2>
-      <table id="gradesTable">
-        <thead>
-          <tr>
-            <th>Ученик</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-    </div>
-
-    <div class="announcement card">
-      <h2>Объявления</h2>
-      <div id="announcements"></div>
-      <div class="admin-panel">
-        <textarea id="newAnnouncement" placeholder="Новое объявление..."></textarea><br />
-        <button onclick="addAnnouncement()">Добавить</button>
-      </div>
-    </div>
-  </main>
-
-  <script>
-    const PASSWORD = "M31";
-    let isAdmin = false;
-
-    const students = [
-      "Абусаломова Ф", "Азимова М", "Абдусаматов Ш", "Абдусаматов С", "Абдуллаев А",
-      "Баходуров А", "Байзоев Ш", "Бобоев Б", "Бозоров М", "Кулиева Р",
-      "Кобилов Д", "Кутбидинов У", "Мамуров И", "Мансуров Б", "Мухаммадиев А",
-      "Марупова Н", "Норточов С", "Рахимов Ю", "Рахимова З", "Халилова З",
-      "Хамдамова Ф", "Хошимова З", "Чумаев А", "Шамсиева Г", "Шукуров С",
-      "Шарипова С", "Староста"
-    ];
-
-    const subjects = [
-      "Математика", "Русский", "Литература", "История",
-      "География", "Физика", "Биология", "Химия",
-      "Английский", "Информатика"
-    ];
-
-    function checkPassword() {
-      const input = document.getElementById("passwordInput").value;
-      if (input === PASSWORD) {
-        isAdmin = true;
-        localStorage.setItem("sinfi9a_admin", "yes");
-        document.getElementById("loginOverlay").style.display = "none";
-        initSite();
-      } else {
-        document.getElementById("loginError").style.display = "block";
-      }
-    }
-
-    function initSite() {
-      document.getElementById("roleInfo").textContent = isAdmin ? "Роль: Староста" : "Роль: Ученик";
-      document.querySelectorAll('.admin-panel').forEach(el => el.style.display = isAdmin ? 'block' : 'none');
-
-      const list = document.getElementById("students");
-      list.innerHTML = "";
-      students.forEach(name => {
-        const li = document.createElement("li");
-        li.innerHTML = isAdmin ? `<label><input type='checkbox'> ${name} <small>(НБ)</small></label>` : name;
-        list.appendChild(li);
-      });
-
-      const gradesTable = document.getElementById("gradesTable");
-      const theadRow = gradesTable.querySelector("thead tr");
-      const tbody = gradesTable.querySelector("tbody");
-      theadRow.innerHTML = '<th>Ученик</th>' + subjects.map(s => `<th>${s}</th>`).join("");
-      tbody.innerHTML = "";
-      students.forEach(name => {
-        const row = document.createElement("tr");
-        row.innerHTML = `<td>${name}</td>` + subjects.map(() =>
-          `<td>${isAdmin ? '<input type="text" size="1">' : ''}</td>`
-        ).join("");
-        tbody.appendChild(row);
-      });
-    }
-
-    window.onload = () => {
-      if (localStorage.getItem("sinfi9a_admin") === "yes") {
-        isAdmin = true;
-        document.getElementById("loginOverlay").style.display = "none";
-      }
-      initSite();
-    }
-
-    function addAnnouncement() {
-      const text = document.getElementById("newAnnouncement").value;
-      if (text.trim()) {
-        const div = document.createElement("div");
-        div.textContent = text;
-        document.getElementById("announcements").prepend(div);
-        document.getElementById("newAnnouncement").value = "";
-      }
-    }
-  </script>
 </body>
-  </html
+
+</html>
